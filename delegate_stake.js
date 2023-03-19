@@ -23,9 +23,6 @@ const main = async() => {
     let stakeBalance = await connection.getBalance(stakeAccount.publicKey);
     console.log(`Stake account balance: ${stakeBalance / LAMPORTS_PER_SOL} SOL`);
 
-    // let stakeStatus = await connection.getStakeActivation(stakeAccount.publicKey);
-    // console.log(`Stake account status: ${stakeStatus.state}`);
-
     const validators = await connection.getVoteAccounts();
     const selectedValidator = validators.current[0];
     const selectedValidatorPubKey = new PublicKey(selectedValidator.votePubkey);
